@@ -11,14 +11,10 @@ class Bowling {
                 if (isStrike(bowls[frameIndex])) {
                     if (frame == 9) {
                         score += 10 + bowls[frameIndex + 1] + bowls[frameIndex + 2]
-                    } else {
-                        score += 10 + bowls[frameIndex + 1] + bowls[frameIndex + 2]
                     }
                     frameIndex++
                 } else if (isSpare(bowls[frameIndex], bowls[frameIndex + 1])) {
                     if (frame == 9) {
-                        score += 10 + bowls[frameIndex + 2]
-                    } else {
                         score += 10 + bowls[frameIndex + 2]
                     }
                     frameIndex += 2
