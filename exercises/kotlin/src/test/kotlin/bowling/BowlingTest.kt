@@ -23,8 +23,17 @@ internal class BowlingTest {
     }
     @Test
     fun scoreWithStrike(){
-        val rolls = listOf(10,0, 4,4, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+        val rolls = listOf(10, 4,4, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
         assertThat(bowl(rolls)).isEqualTo(26)
     }
-
+    @Test
+    fun scoreWithSpares(){
+        val rolls = listOf(5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5,5, 5);
+        assertThat(bowl(rolls)).isEqualTo(150)
+    }
+    @Test
+    fun scoreWithStrikes(){
+        val rolls = listOf(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        assertThat(bowl(rolls)).isEqualTo(300)
+    }
 }
