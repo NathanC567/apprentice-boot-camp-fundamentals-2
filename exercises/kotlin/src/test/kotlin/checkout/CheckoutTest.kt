@@ -49,8 +49,9 @@ internal class CheckoutTest {
     @Test
     fun twoB() {
         val checkout = Checkout()
-        checkout.scan("B")
-        checkout.scan("B")
+        repeat(2) {
+            checkout.scan("B")
+        }
         assertEquals(checkout.total(), 45)
     }
 
@@ -61,6 +62,38 @@ internal class CheckoutTest {
             checkout.scan("B")
         }
         assertEquals(checkout.total(), 90)
+    }
+    @Test
+    fun twoC() {
+        val checkout = Checkout()
+        repeat(2) {
+            checkout.scan("C")
+        }
+        assertEquals(checkout.total(), 40)
+    }
+    @Test
+    fun twoD() {
+        val checkout = Checkout()
+        repeat(2) {
+            checkout.scan("D")
+        }
+        assertEquals(checkout.total(), 30)
+    }
+    @Test
+    fun sixC() {
+        val checkout = Checkout()
+        repeat(6) {
+            checkout.scan("C")
+        }
+        assertEquals(checkout.total(), 110)
+    }
+    @Test
+    fun sixD() {
+        val checkout = Checkout()
+        repeat(6) {
+            checkout.scan("D")
+        }
+        assertEquals(checkout.total(), 75)
     }
 
     @Test
