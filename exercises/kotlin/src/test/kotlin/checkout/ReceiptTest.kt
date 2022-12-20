@@ -1,6 +1,6 @@
 package checkout
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 internal class ReceiptTest {
@@ -36,13 +36,13 @@ internal class ReceiptTest {
         checkout.scan("B")
         assertTrue(checkout.receipt().contains("B: 30\n"))
         checkout.scan("A")
-        assertTrue(checkout.receipt().contains("A: 50 - 20 (3 for 130)\n"))
+        assertTrue(checkout.receipt().contains("A: 50\n"))
         checkout.scan("C")
-        assertTrue(checkout.receipt().contains("B: 30\n"))
+        assertTrue(checkout.receipt().contains("C: 20\n"))
         checkout.scan("D")
         assertTrue(checkout.receipt().contains("D: 15\n"))
         checkout.scan("B")
         assertTrue(checkout.receipt().contains("B: 30 - 15 (2 for 45)\n"))
-        assertTrue(checkout.receipt().contains("Total: 210"))
+        assertTrue(checkout.receipt().contains("Total: 230"))
     }
 }

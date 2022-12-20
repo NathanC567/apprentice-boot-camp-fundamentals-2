@@ -1,6 +1,6 @@
 package checkout
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class CheckoutTest {
@@ -14,31 +14,29 @@ internal class CheckoutTest {
     @Test
     fun twoA() {
         val checkout = Checkout()
-        checkout.scan("A")
-        checkout.scan("A")
+        repeat(2) {
+            checkout.scan("A")
+        }
         assertEquals(checkout.total(), 100)
     }
 
     @Test
     fun threeA() {
         val checkout = Checkout()
-        checkout.scan("A")
-        checkout.scan("A")
-        checkout.scan("A")
-        assertEquals(checkout.total(), 130)
+        repeat(3) {
+            checkout.scan("A")
+        }
+        assertEquals(checkout.total(), 150)
     }
 
 
     @Test
     fun sixA() {
         val checkout = Checkout()
-        checkout.scan("A")
-        checkout.scan("A")
-        checkout.scan("A")
-        checkout.scan("A")
-        checkout.scan("A")
-        checkout.scan("A")
-        assertEquals(checkout.total(), 260)
+        repeat(6) {
+            checkout.scan("A")
+        }
+        assertEquals(checkout.total(), 270)
     }
 
     @Test
@@ -59,10 +57,9 @@ internal class CheckoutTest {
     @Test
     fun fourB() {
         val checkout = Checkout()
-        checkout.scan("B")
-        checkout.scan("B")
-        checkout.scan("B")
-        checkout.scan("B")
+        repeat(4) {
+            checkout.scan("B")
+        }
         assertEquals(checkout.total(), 90)
     }
 
@@ -83,28 +80,28 @@ internal class CheckoutTest {
     fun incremental() {
         val checkout = Checkout()
         checkout.scan("A")
-        assertEquals(checkout.total(),50)
+        assertEquals(checkout.total(), 50)
         checkout.scan("B")
-        assertEquals(checkout.total(),80)
+        assertEquals(checkout.total(), 80)
         checkout.scan("A")
-        assertEquals(checkout.total(),130)
+        assertEquals(checkout.total(), 130)
         checkout.scan("A")
-        assertEquals(checkout.total(),160)
+        assertEquals(checkout.total(), 180)
         checkout.scan("B")
-        assertEquals(checkout.total(),175)
+        assertEquals(checkout.total(), 195)
         checkout.scan("C")
-        assertEquals(checkout.total(),195)
+        assertEquals(checkout.total(), 215)
         checkout.scan("B")
-        assertEquals(checkout.total(),225)
+        assertEquals(checkout.total(), 245)
         checkout.scan("C")
-        assertEquals(checkout.total(),245)
+        assertEquals(checkout.total(), 265)
         checkout.scan("D")
-        assertEquals(checkout.total(),260)
+        assertEquals(checkout.total(), 280)
         checkout.scan("D")
-        assertEquals(checkout.total(),275)
+        assertEquals(checkout.total(), 295)
         checkout.scan("D")
-        assertEquals(checkout.total(),290)
+        assertEquals(checkout.total(), 310)
         checkout.scan("C")
-        assertEquals(checkout.total(),310)
+        assertEquals(checkout.total(), 330)
     }
 }

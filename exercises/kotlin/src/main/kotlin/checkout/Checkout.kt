@@ -8,8 +8,8 @@ internal class Checkout {
     fun scan(sku: String) {
         if ("A" == sku) {
             total += 50
-            if (++numberOfA % 3 == 0) {
-                total -= 20
+            if (++numberOfA % 5 == 0) {
+                total -= 30
             }
             receipt.scannedA()
         } else if ("B" == sku) {
